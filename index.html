@@ -1,1 +1,28 @@
-<h1> Hello <h1>
+<html>
+    <head>
+        <title>Tab Cloaking</title>
+    </head>
+    <body>
+    <input type="text" id="titleinput" placeholder="Enter title here">
+    <input type="button" onclick="setTitle()" value="set">
+    <input type="button" onclick="test()" value="Check title that is saved">
+    <script>
+        function setTitle() {
+            var titleinputperson = document.getElementById("titleinput").value;
+            document.title = titleinputperson;
+            if (titleinputperson == "") {
+                window.localStorage.addItem("titled", titleinputperson);
+            } else {
+                window.localStorage.setItem("titled", titleinputperson);
+            }
+        }
+        var titlecheck = window.localStorage.getItem("titled");
+        function test() {
+            alert(titlecheck);
+        }
+    </script>
+    <script>
+        document.title = titlecheck;
+    </script>
+    </body>
+</html>

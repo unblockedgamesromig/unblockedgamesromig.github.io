@@ -10,6 +10,58 @@
 
 <head>
 </head>
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+    const phrases = [
+      "Hello There!",
+      "Avongers, assembol",
+         "Now Hiring!",
+      "*silent moment of cringe*",
+      "NAHHHHH",
+      "Cuh",
+      "Finish yo homework, dawg",
+      "Do people read this?",
+      "<motivational quote> </motivational quote>",
+      "You miss 100% of the shots you don't take.",
+      "jimmy neutron certified",
+      "wow this worked",
+      "do people read these?",
+      "Does Redbull actually give you wings?",
+      "sus",
+      "W rizz",
+      "L rizz",
+      "Oh hey its you again",
+      "roblox sucks",
+      "For students, by student (singular)",
+      "What da dog doin?",
+      "Reload the page for a new one",
+      "Thx OutRed",
+      "My name is Walter Hartwell White. I live at 308 Negra Arroyo Lane Albuquerque New Mexico 87104",
+      "i need more phrases to put here",
+       "9 + 10 = 21",
+       "yO i SwEAr i'M NOt gaY",
+       "Whopper whopper whopper whopper junior double triple whopper",
+       "I have 20 million power in Rise of Kingdoms!!!",
+		"Avocado Arcade Better"
+    ];
+
+    function getRandomPhrase() {
+      return phrases[Math.floor(Math.random() * phrases.length)];
+    }
+  </script>
+</head>
+<body>
+  <div id="phrase">
+    <script>
+      document.getElementById("phrase").innerHTML = getRandomPhrase();
+    </script>
+  </div>
+  
+</body>
+</html>
+
 <body>
 <style>
 body {

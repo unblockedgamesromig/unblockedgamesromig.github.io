@@ -13,28 +13,28 @@
       <a href="./contact.html">Extras</a>
     </nav>
     
-    <body>
-    <input type="text" id="titleinput" placeholder="Enter Tab Title Here">
-    <input type="button" onclick="setTitle()" value="set">
-    <input type="button" onclick="test()" value="Check title that is saved">
-    <p>This might not work all over the site</p>
-    <script>
-    
-        function setTitle() {
-            var titleinputperson = document.getElementById("titleinput").value;
-            document.title = titleinputperson;
-            if (titleinputperson == "") {
-                window.localStorage.addItem("titled", titleinputperson);
-            } else {
-                window.localStorage.setItem("titled", titleinputperson);
-            }
-        }
-        var titlecheck = window.localStorage.getItem("titled");
-        function test() {
-            alert(titlecheck);
-        }
-    
-</body>
-
+ 
+  <body>
+    <div class="console-container">
+      <div class="console">
+        <h1>Tab Cloaker</h1>
+        <div class="consolebody">
+          <p>Enter a new tab title or a image URL below. Whatever you set will be used all over the site.</p>
+          <p class="console-input">> <input id="userinput" type="url" pattern="https://.*" placeholder="Enter a title or image URL" autocomplete="on" autofocus /></p>
+          <p>Output: <span id="console-output"></span></p>
+        </div>
+      </div>
+      <div class="button-wrapper">
+        <button onclick="changeTabTitle();" class="console-button">Set Title</button>
+        <button onclick="changeTabIcon();" class="console-button">Set Icon</button>
+        <button onclick="resetTabSettings();" class="console-button">Reset</button>
+      </div>
+      <div class="examples">
+        
+     
+        
+    <script src="/js/main.js"></script>
+    <script src="/js/tab.js"></script>
+    <script src="/js/lib/jquery-3.3.1.min.js"></script>
+  </body>
 </html>
-  

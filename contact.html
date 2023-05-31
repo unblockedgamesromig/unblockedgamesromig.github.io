@@ -14,168 +14,118 @@
         <title>Avocado Arcade | Proxy</title>
         <a href="#menu" id="toggle"><span></span></a>
     
-        <div id="menu">
-          <ul>
-            <li><a href="./about.html">Games</a></li>
-            <li><a href="./proxy/proxy.html">Proxy</a></li>
-            <li><a href="./service.html">Discord</a></li>
-          </ul>
-        </div>
-         <style>
-            /* Important styles */
-        #toggle {
-          display: block;
-          width: 28px;
-          height: 30px;
-          margin: 30px auto 10px;
-        }
-        
-        #toggle span:after,
-        #toggle span:before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: -9px;
-        }
-        #toggle span:after{
-          top: 9px;
-        }
-        #toggle span {
-          position: relative;
-          display: block;
-        }
-        
-        #toggle span,
-        #toggle span:after,
-        #toggle span:before {
-          width: 100%;
-          height: 5px;
-          background-color: #888;
-          transition: all 0.3s;
-          backface-visibility: hidden;
-          border-radius: 2px;
-        }
-        
-        /* on activation */
-        #toggle.on span {
-          background-color: transparent;
-        }
-        #toggle.on span:before {
-          transform: rotate(45deg) translate(5px, 5px);
-        }
-        #toggle.on span:after {
-          transform: rotate(-45deg) translate(7px, -8px);
-        }
-        #toggle.on + #menu {
-          opacity: 1;
-          visibility: visible;
-        }
-        
-        /* menu appearance*/
-        #menu {
-          position: relative;
-          color: #999;
-          width: 200px;
-          padding: 10px;
-          margin: auto;
-          font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
-          text-align: center;
-          border-radius: 4px;
-          background: white;
-          box-shadow: 0 1px 8px rgba(0,0,0,0.05);
-          /* just for this demo */
-          opacity: 0;
-          visibility: hidden;
-          transition: opacity .4s;
-        }
-        #menu:after {
-          position: absolute;
-          top: -15px;
-          left: 95px;
-          content: "";
-          display: block;
-          border-left: 15px solid transparent;
-          border-right: 15px solid transparent;
-          border-bottom: 20px solid white;
-        }
-        ul, li, li a {
-          list-style: none;
-          display: block;
-          margin: 0;
-          padding: 0;
-        }
-        li a {
-          padding: 5px;
-          color: #888;
-          text-decoration: none;
-          transition: all .2s;
-        }
-        li a:hover,
-        li a:focus {
-          background: #1ABC9C;
-          color: #fff;
-        }
-        
-        
-        /* demo styles */
-        body { margin-top: 3em; background: #eee; color: #555; font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif; }
-        p, p a { font-size: 12px;text-align: center; color: #888; }
-         </style>
-         <script>
-            var theToggle = document.getElementById('toggle');
-        
-        // based on Todd Motto functions
-        // https://toddmotto.com/labs/reusable-js/
-        
-        // hasClass
-        function hasClass(elem, className) {
-          return new RegExp(' ' + className + ' ').test(' ' + elem.className + ' ');
-        }
-        // addClass
-        function addClass(elem, className) {
-            if (!hasClass(elem, className)) {
-              elem.className += ' ' + className;
-            }
-        }
-        // removeClass
-        function removeClass(elem, className) {
-          var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, ' ') + ' ';
-          if (hasClass(elem, className)) {
-                while (newClass.indexOf(' ' + className + ' ') >= 0 ) {
-                    newClass = newClass.replace(' ' + className + ' ', ' ');
-                }
-                elem.className = newClass.replace(/^\s+|\s+$/g, '');
-            }
-        }
-        // toggleClass
-        function toggleClass(elem, className) {
-          var newClass = ' ' + elem.className.replace( /[\t\r\n]/g, " " ) + ' ';
-            if (hasClass(elem, className)) {
-                while (newClass.indexOf(" " + className + " ") >= 0 ) {
-                    newClass = newClass.replace( " " + className + " " , " " );
-                }
-                elem.className = newClass.replace(/^\s+|\s+$/g, '');
-            } else {
-                elem.className += ' ' + className;
-            }
-        }
-        
-        theToggle.onclick = function() {
-           toggleClass(this, 'on');
-           return false;
-        }
-         </script>
-    
-    <div class="m-5">
-	
-      <div class="inline-block w-10">
-        <span data-toggle-theme="dark" data-act-class="pl-4" class="border rounded-full border-green-700 flex items-center cursor-pointer w-10 transition-all duration-300 ease-in-out pl-0">
-          <span class="rounded-full w-3 h-3 m-1 bg-green-700">
-          </span>
-        </span>
-      </div>
+        <nav>
+          <a href="./about.html">Games</a>
+          <a href="./proxy/proxy.html">Proxy</a>
+          <a href="./service.html">Discord</a>
+          <a href="./contact.html">Extras</a>
+          <div class="animation start-home"></div>
+        </nav>
+    <style>
+      nav {
+        margin: 27px auto 0;
       
-    </div>
+        position: relative;
+        width: 590px;
+        height: 50px;
+        background-color: #34495e;
+        border-radius: 8px;
+        font-size: 0;
+      }
+      nav a {
+        line-height: 50px;
+        height: 100%;
+        font-size: 15px;
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        text-decoration: none;
+        text-transform: uppercase;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+      }
+      nav .animation {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        z-index: 0;
+        transition: all .5s ease 0s;
+        border-radius: 8px;
+      }
+      a:nth-child(1) {
+        width: 100px;
+      }
+      a:nth-child(2) {
+        width: 110px;
+      }
+      a:nth-child(3) {
+        width: 100px;
+      }
+      a:nth-child(4) {
+        width: 160px;
+      }
+      a:nth-child(5) {
+        width: 120px;
+      }
+      nav .start-home, a:nth-child(1):hover~.animation {
+        width: 100px;
+        left: 0;
+        background-color: #1abc9c;
+      }
+      nav .start-about, a:nth-child(2):hover~.animation {
+        width: 110px;
+        left: 100px;
+        background-color: #e74c3c;
+      }
+      nav .start-blog, a:nth-child(3):hover~.animation {
+        width: 100px;
+        left: 210px;
+        background-color: #3498db;
+      }
+      nav .start-portefolio, a:nth-child(4):hover~.animation {
+        width: 160px;
+        left: 310px;
+        background-color: #9b59b6;
+      }
+      nav .start-contact, a:nth-child(5):hover~.animation {
+        width: 120px;
+        left: 470px;
+        background-color: #e67e22;
+      }
+      
+      body {
+        font-size: 12px;
+        font-family: sans-serif;
+        background: #2c3e50;
+      }
+      h1 {
+        text-align: center;
+        margin: 40px 0 40px;
+        text-align: center;
+        font-size: 30px;
+        color: #ecf0f1;
+        text-shadow: 2px 2px 4px #000000;
+        font-family: 'Cherry Swash', cursive;
+      }
+      
+      p {
+          position: absolute;
+          bottom: 20px;
+          width: 100%;
+          text-align: center;
+          color: #ecf0f1;
+          font-family: 'Cherry Swash',cursive;
+          font-size: 16px;
+      }
+      
+      span {
+          color: #2BD6B4;
+      }
+    
+      </style>
+     
+           
     
     <div class="m-5">
       <h2 class="mb-4 text-2xl text-green-700 font-bold">Buttons</h2>

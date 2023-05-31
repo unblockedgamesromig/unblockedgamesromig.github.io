@@ -13,28 +13,66 @@
       <a href="./contact.html">Extras</a>
     </nav>
     
- 
-  <body>
-    <div class="console-container">
-      <div class="console">
-        <h1>Tab Cloaker</h1>
-        <div class="consolebody">
-          <p>Enter a new tab title or a image URL below. Whatever you set will be used all over the site.</p>
-          <p class="console-input">> <input id="userinput" type="url" pattern="https://.*" placeholder="Enter a title or image URL" autocomplete="on" autofocus /></p>
-          <p>Output: <span id="console-output"></span></p>
-        </div>
+    <div class="m-5">
+	
+      <div class="inline-block w-10">
+        <span data-toggle-theme="dark" data-act-class="pl-4" class="border rounded-full border-green-700 flex items-center cursor-pointer w-10 transition-all duration-300 ease-in-out pl-0">
+          <span class="rounded-full w-3 h-3 m-1 bg-green-700">
+          </span>
+        </span>
       </div>
-      <div class="button-wrapper">
-        <button onclick="changeTabTitle();" class="console-button">Set Title</button>
-        <button onclick="changeTabIcon();" class="console-button">Set Icon</button>
-        <button onclick="resetTabSettings();" class="console-button">Reset</button>
-      </div>
-      <div class="examples">
-        
-     
-        
-    <script src="/js/main.js"></script>
-    <script src="/js/tab.js"></script>
-    <script src="/js/lib/jquery-3.3.1.min.js"></script>
-  </body>
-</html>
+      
+    </div>
+    
+    <div class="m-5">
+      <h2 class="mb-4 text-2xl text-green-700 font-bold">Buttons</h2>
+      <button data-act-class="shadow-outline" data-set-theme="" class="bg-green-700 focus:outline-none m-1 rounded p-2">Default</button>
+      
+      <button data-act-class="shadow-outline" data-set-theme="black" class="bg-green-700 focus:outline-none m-1 rounded p-2">Black</button>
+      <button data-act-class="shadow-outline" data-set-theme="🌸" class="bg-green-700 focus:outline-none m-1 rounded p-2">Green</button>
+      <button data-act-class="shadow-outline" data-set-theme="🐬" class="bg-green-700 focus:outline-none m-1 rounded p-2">Blue</button>
+      <button data-act-class="shadow-outline" data-set-theme="🐤" class="bg-green-700 focus:outline-none m-1 rounded p-2">Yellow</button>
+    </div>
+    
+    <div class="m-5">
+      <h2 class="mb-4 text-2xl text-green-700 font-bold">Select</h2>
+      <select data-choose-theme class="focus:outline-none h-10 rounded-full px-3 border">
+        <option value="">Default</option>
+        <option value="black">Black</option>
+        <option value="🌸"> Green</option>
+        <option value="🐬"> Blue</option>
+        <option value="🐤">Yellow</option>
+      </select>
+    </div>
+    <style>:root {
+      --color-default: #fff;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --color-default: #252b30;
+      }
+    }
+    [data-theme='dark'] {
+      --color-default: #252b30;
+    }
+    [data-theme='black'] {
+      --color-default: #000000;
+    }
+    [data-theme='🌸'] {
+      --color-default: #00FF00;
+    }
+    [data-theme='🐬'] {
+      --color-default: #7ec6ff;
+    }
+    [data-theme='🐤'] {
+      --color-default: #ffd65a;
+    
+    }
+    body {
+      background-color: var(--color-default);
+    }
+    </style>    
+    <script>// https://cdn.jsdelivr.net/npm/theme-change@2.4.0/index.js
+
+
+    </script>

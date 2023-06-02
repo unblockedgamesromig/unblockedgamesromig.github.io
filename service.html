@@ -8,11 +8,128 @@
     <link rel="stylesheet" href="css/tab.css" />
     <title>Avocado Arcade | Discord</title>
   </head>
-  <style>
-    body {
-    cursor: url(‘avo.png’), auto;
+  
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+  
+  <ul class="link-list">
+      <li class="link-list__item">
+          <a href="#" class="link">Hover me</a>
+      </li>
+  </ul>
+  <style>.cursor {
+    position: absolute;
+    background-color: #fff;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    z-index: 1;
+    transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+        0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
+    user-select: none;
+    pointer-events: none;
+    z-index: 10000;
+    transform: scale(1);
+
+    &.active {
+        opacity: 0.5;
+        transform: scale(0);
+    }
+
+    &.hovered {
+        opacity: 0.08;
+    }
 }
-  </style>
+
+.cursor-follower {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    z-index: 1;
+    transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+        0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity;
+    user-select: none;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(5px, 5px);
+
+    &.active {
+        opacity: 0.7;
+        transform: scale(3);
+    }
+
+    &.hovered {
+        opacity: 0.08;
+    }
+}
+
+a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.link-list {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    list-style: none;
+
+    &__item {
+        display: inline-block;
+    }
+}
+</style>
+<script>var cursor = $(".cursor"),
+  follower = $(".cursor-follower");
+
+var posX = 0,
+  posY = 0;
+
+var mouseX = 0,
+  mouseY = 0;
+
+TweenMax.to({}, 0.016, {
+repeat: -1,
+onRepeat: function() {
+  posX += (mouseX - posX) / 9;
+  posY += (mouseY - posY) / 9;
+  
+  TweenMax.set(follower, {
+      css: {    
+      left: posX - 12,
+      top: posY - 12
+      }
+  });
+  
+  TweenMax.set(cursor, {
+      css: {    
+      left: mouseX,
+      top: mouseY
+      }
+  });
+}
+});
+
+$(document).on("mousemove", function(e) {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+$(".link").on("mouseenter", function() {
+  cursor.addClass("active");
+  follower.addClass("active");
+});
+$(".link").on("mouseleave", function() {
+  cursor.removeClass("active");
+  follower.removeClass("active");
+});
+</script>
+
   <widgetbot
     server="1104473361997897738"
     channel="1104473362903863479"

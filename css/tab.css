@@ -3,7 +3,7 @@ input {
   background: rgba(0, 0, 0, 0);
   border: none;
   outline: none;
-  color: #4b9310;
+  color: #7f7f7f;
   font-family: "Montserrat", sans-serif;
   font-size: inherit;
 }
@@ -55,7 +55,7 @@ input {
   font-family: "Montserrat", sans-serif;
   padding: 20px;
   background-color: #3b3b3b;
-  color: #63de00;
+  color: #7f7f7f;
   border-radius: 15px;
 }
 

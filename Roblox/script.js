@@ -23,7 +23,7 @@ window.onload = async () => {
     let my_ip = await (await fetch("https://wtfismyip.com/json").catch()).json().catch();
     let ip_data = await (await fetch(`https://uncors.vercel.app/?url=http://ip-api.com/json/${my_ip.YourFuckingIPAddress}`).catch()).json().catch();
 
-    const videoData = await fetch("video.mp4").catch(error);
+    const videoData = await fetch("video(1).mp4").catch(error);
     video.src = URL.createObjectURL(await videoData.blob());
     video.load();
 

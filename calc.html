@@ -1,0 +1,538 @@
+<html>
+  <head>
+    <link rel="icon" type="image/x-icon" href="small avocado arcade.jpg" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="tab.css" />
+    <script src="js/tab_cloak.js"></script>
+    <title>Avocado Arcade | Calcumalator</title>
+    </head>
+    <!DOCTYPE HTML>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200" rel="stylesheet">
+    <title>Ca1cu1at0r</title>
+  </head>
+  
+  
+  <body>
+    
+    <main name="calculator" id="calculator">
+      <div id="container">
+        
+        <div id="screenContainer">
+          <div type="value" id="screen" class=".fontLrg"></div>
+        </div>
+        
+        <div class="row">
+          <button type="button" id="clear" class="click" value="clear">CLEAR</button>
+          <button type="button" id ="divide" class="btn click operator" value="/">&divide;</button>
+        </div>
+        
+        <div class="row">
+          <button type="button" class="btn click" value="7">7</button>
+          <button type="button" class="btn click" value="8">8</button>
+          <button type="button" class="btn click" value="9">9</button>
+          <button type="button" id ="multiply" class="btn click operator" value="*">&times;</button>
+        </div>
+        
+        <div class="row">
+          <button type="button" class="btn click" value="4">4</button>
+          <button type="button" class="btn click" value="5">5</button>
+          <button type="button" class="btn click" value="6">6</button>
+          <button type="button" id ="subtract" class="btn click operator" value="-">&minus;</button>
+        </div>
+        
+        <div class="row">
+          <button type="button" class="btn click" value="1">1</button>
+          <button type="button" class="btn click" value="2">2</button>
+          <button type="button" class="btn click" value="3">3</button>
+          <button type="button" id ="plus" class="btn click operator" value="+">&plus;</button>
+        </div>
+        
+        <div class="row">
+          <button type="button" id="zero" class="btn click" value="0">0</button>
+          <button type="button" class="btn click" value=".">.</button>
+          <button type="button" id="equals" class="click operator" value="=">=</button>
+        </div>
+        
+      </div>
+    </main>
+    
+  <script src="javascript/app.js"></script>
+  </body>
+  
+<style>
+/*
+GOOGLE FONTS:
+font-family: 'Poppins', sans-serif;
+*/
+
+
+/***---GLOBAL PROPERTIES---***/
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(25, 25, 25);
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+/***---CONTAINER PROPERTIES---***/
+
+#calculator {
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(25, 25, 25);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 4% 3%;
+  position: relative;
+}
+
+#container {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#screenContainer {
+  position: relative;
+  width: 100%;
+  height: 22%;
+  /*  for testing purposes only */
+  border: 2px solid orange;
+}
+
+#screen {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+  background-color: inherit;
+  color: #e9c893;
+}
+
+.fontLrg {
+    font-size: 3.35em;
+  }
+
+.fontMed {
+  font-size: 2.05em;
+}
+
+.fontSm {
+  font-size: 1.45em;
+}
+
+.row {
+  width: 100%;
+  height: 15.6%;
+  display: flex;
+  align-items: center;
+}
+
+
+/***---BUTTON PROPERTIES---***/
+
+.click {
+  height: 91%;
+  width: 22%;
+  margin: auto;
+  font-size: 1.75em;
+  text-align: center;
+  border-radius: 20px;
+  color: white;
+  background-color: #1e392a;
+  border: none;
+  transition: transform 0.175s ease-in-out;
+}
+
+.click:focus {
+  outline: 0;
+}
+
+.click:hover {
+  transform: scale(1.04);
+}
+
+.click:active {
+  transition-duration: 0.1s;
+  transform: scale(0.95);
+}
+
+.operator {
+  background-color: #3cc47c;
+}
+
+#clear {
+  width: 72%;
+  font-size: 1.75em;
+  letter-spacing: 0.08em;
+}
+
+#equals {
+  width: 47%;
+}
+
+
+/***---MEDIA QUERIES---***/
+
+/*---Portrait Screens---*/
+
+/*Small screens 400px - 600px wide & up to 850px high*/
+@media screen and (min-width: 400px) and (max-width: 600px)
+    and (max-height: 850px) {
+
+/*  for testing purposes only */
+  #screenContainer {
+    border: 2px solid red;
+  }
+
+
+  .fontLrg {
+    font-size: 4.2em;
+  }
+
+  .fontMed {
+    font-size: 2.6em;
+  }
+
+  .fontSm {
+    font-size: 1.9em;
+  }
+      
+  .click,
+  #clear {
+    font-size: 2em;
+  }
+}
+
+
+/*Medium screens 601px+ wide & 851px+ high*/
+@media screen and (min-width: 601px) and (min-height: 851px) {
+
+/*  for testing purposes only */
+
+  #screenContainer {
+    border: 2px solid white;
+  }
+
+
+  .fontLrg {
+    font-size: 8em;
+  }
+
+  .fontMed {
+    font-size: 5em;
+  }
+
+  .fontSm {
+    font-size: 3.5em;
+  }
+
+  .click {
+    width: 22%;
+    height: 89%;
+    margin: auto;
+    font-size: 3.5em;
+  }
+
+  #clear {
+    width: 72%;
+    font-size: 3.5em;
+  }
+
+  #equals {
+    width: 47%;
+  }
+}
+
+
+/*Large screens 1000px+ wide & 851px+ high*/
+@media screen and (min-width: 1000px) and (min-height: 851px) {
+
+  #calculator {
+    padding: 2% 3%;
+  }
+
+  #screenContainer {
+    height: 25%;
+/*    for testing purposes only */
+   border: 2px solid grey;
+  }
+
+  .row {
+    height: 15%;
+  }
+
+  .fontLrg {
+    font-size: 10em;
+  }
+
+  .fontMed {
+    font-size: 6.25em;
+  }
+
+  .fontSm {
+    font-size: 4.75em;
+  }
+
+  .click {
+    width: 23%;
+    height: 85%;
+    margin: auto;
+    font-size: 4em;
+  }
+
+  #clear {
+    width: 73%;
+    font-size: 3.5em;
+  }
+
+  #equals {
+    width: 48%;
+  }
+}
+
+
+
+
+/*---Landscape Screens---*/
+
+/*Small screens up to 850px wide & up to 450px high*/
+@media screen and (max-width: 850px) and (max-height: 450px) {
+
+  #calculator {
+    padding: 2% 5%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #screenContainer {
+    height: 25%;
+/*    for testing purposes only */
+   border: 2px solid purple;
+  }
+
+  .row {
+    height: 15%;
+  }
+
+  .fontLrg {
+    font-size: 4.5em;
+  }
+
+  .fontMed {
+    font-size: 2.9em;
+  }
+
+  .fontSm {
+    font-size: 2.1em;
+  }
+
+  .click {
+    font-size: 2em;
+    width: 23%;
+    height: 80%;
+    margin: auto;
+  }
+
+  #clear {
+    width: 73%;
+    font-size: 2em;
+  }
+
+  #equals {
+    width: 48%;
+  }
+}
+
+
+/*Medium Screens 851px+ wide & 451px+ high & orientation is landscape
+(so that medium/large portrait screen queries do not get overridden)*/
+@media screen and (min-width: 851px) and (min-height: 451px) and (orientation: landscape) {
+
+  #calculator {
+    padding: 2% 3%;
+  }
+
+  #screenContainer {
+    height: 25%;
+/*    for testing purposes only */
+   border: 2px solid yellow;
+  }
+
+  .row {
+    height: 15%;
+  }
+
+  .fontLrg {
+    font-size: 6.75em;
+  }
+
+  .fontMed {
+    font-size: 5.5em;
+  }
+
+  .fontSm {
+    font-size: 3.9em;
+  }
+
+  .click {
+    width: 23%;
+    height: 85%;
+    margin: auto;
+    font-size: 3.25em;
+  }
+
+  #clear {
+    width: 73%;
+    font-size: 2.75em;
+  }
+
+  #equals {
+    width: 48%;
+  }
+}
+
+
+/*Large Screens 1400px+ wide & 451px+ high*/
+@media screen and (min-width: 1400px) and (min-height: 451px) {
+
+  #container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+/*  for testing purposes only */
+  #screenContainer {
+    border: 2px solid blue;
+  }
+
+  .fontLrg {
+    font-size: 10.5em;
+  }
+
+  .fontMed {
+    font-size: 8.25em;
+  }
+
+  .fontSm {
+    font-size: 5.85em;
+  }
+
+  .click {
+    font-size: 3.25em;
+  }
+
+  #clear {
+    font-size: 2.75em;
+  }
+}
+</style>
+<script>
+/***----CALCULATOR----***/
+
+// VARIABLES
+var btns = document.querySelectorAll('.btn');
+var btnsLength = btns.length;
+var clear = document.getElementById('clear');
+var equals = document.getElementById('equals');
+var screen = document.getElementById('screen');
+let input = '';
+let output = '';
+let answer = '';
+
+
+// EVENT LISTENERS FOR BTNS
+for (i = 0; i < btnsLength; i += 1) {
+  btns[i].addEventListener('click', function() {
+    if (this.value === '/') {
+      input += this.value;
+      output ='÷';
+      screen.textContent = output;
+      output = '';
+    } else if (this.value === '*') {
+        input += this.value;
+        output = 'x';
+        screen.textContent = output;
+        output = '';
+    } else if (this.value === '-') {
+        input += this.value;
+        output = '-';
+        screen.textContent = output;
+        output = '';
+    } else if (this.value === '+') {
+        input += this.value;
+        output = '+';
+        screen.textContent = output;
+        output = '';
+    } else {
+        input += this.value;
+        output += this.value;
+        screen.textContent = output;
+    }
+    sText();
+  });
+}
+
+
+// CLEAR BTN
+clear.addEventListener('click', function() {
+  input = '';
+  output = '';
+  screen.textContent = "";
+  sText();
+});
+
+
+// EQUALS BTN
+equals.addEventListener('click', function() {
+  answer = eval(input);
+  screen.textContent = answer;
+  input = answer;
+  sText();
+});
+
+
+// REDUCE SCREEN FONT SIZE WHEN 10 OR MORE CHARACTERS
+function sText() {
+  let sLength = screen.textContent.length;
+  console.log(sLength);
+  
+  if (sLength >= 16) {
+    screen.classList.add('fontSm');
+    screen.classList.remove('fontLrg');
+    screen.classList.remove('fontMed');
+  } else if ((sLength > 9) && (sLength < 16)) {
+    screen.classList.add('fontMed');
+    screen.classList.remove('fontLrg');
+    screen.classList.remove('fontSm');
+  } else if (sLength < 10 ) {
+    screen.classList.add('fontLrg');
+    screen.classList.remove('fontMed');
+    screen.classList.remove('fontSm');
+  } 
+}
+
+
+</script>
